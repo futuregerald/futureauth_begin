@@ -3,9 +3,21 @@
   "version": "0.0.0",
   "description": "A simple Begin app with the minimum necessary file structure",
   "scripts": {
-    "start": "npx sandbox"
+    "start": "npx arc sandbox",
+    "deploy": "npx arc deploy"
   },
   "devDependencies": {
-    "@architect/sandbox": "^3.3"
+    "@architect/sandbox": "^3.3",
+    "jsdoc": "^3.6.6"
+  },
+  "dependencies": {
+    "@architect/architect": "^8.4.7",
+    "@architect/functions": "^3.13.9",
+    "argon2": "^0.27.1",
+    "jsonschema": "^1.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mailgun-js": "^0.22.0",
+    "mongoose": "^5.11.10",
+    "rand-token": "^1.0.1"
   }
 }

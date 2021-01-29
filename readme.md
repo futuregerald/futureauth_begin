@@ -1,14 +1,6 @@
-<img src="https://static.begin.app/node-minimal/readme-banner.png" width="553">
+[![Begin build status](https://buildstatus.begin.app/meadow-wye/status.svg)](https://begin.com)
 
-[![Begin build status](https://buildstatus.begin.app/prism-bf4/status.svg)](https://begin.com)
-
-A simple app with the minimum necessary file structure to get started on Begin.
-
-## Deploy your own
-
-[![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/node-minimal)
-
-Deploy your own clone of this app to Begin!
+An opinionated Typescript serverless authentication starter that deploys to begin.com using arc.codes and uses mongoDB as the backend.
 
 ## Getting started
 
