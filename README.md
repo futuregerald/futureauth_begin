@@ -1,2 +1,0 @@
-# futureauth
-Begin app
