@@ -1,21 +1,18 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 const { loginEmailPassword } = require('@architect/shared/auth/auth');
+const { headers } = require('@architect/shared/common/headers');
 require('@architect/shared/DB/dbConnection');
 const arc = require('@architect/functions');
 const validatePayload = require('./validator');
 
-const headers = {
-  'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
-  'content-type': 'application/json',
-};
-
-exports.handler = async function http(req) {
+async function http(req) {
+  console.log('req', req);
   try {
     /**
      * @type {{username: string, password: string, tenant: string}}
      */
-    const body = JSON.parse(req.body);
+    const { body } = req;
     validatePayload(body);
 
     const results = await loginEmailPassword(body);
@@ -32,4 +29,6 @@ exports.handler = async function http(req) {
       body: error.message,
     };
   }
-};
+}
+
+exports.handler = arc.http.async(http);

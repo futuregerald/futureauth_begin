@@ -1,8 +1,9 @@
 const { Validator } = require('jsonschema');
+const { headers } = require('@architect/shared/common/headers');
 
 const v = new Validator();
 
-const validatePayload = body => {
+const validatePayload = ({ body }) => {
   const schema = {
     type: 'object',
     properties: {
@@ -15,12 +16,30 @@ const validatePayload = body => {
     required: ['email', 'password'],
     additionalProperties: false,
   };
+  let validationResults;
+  try {
+    validationResults = v.validate(body, schema, {
+      allowUnknownAttributes: false,
+    });
+  } catch (error) {
+    console.log(error);
+    return {
+      statusCode: 422,
+      headers,
+      body: 'Unable to validate inbound body',
+    };
+  }
 
-  const validationResults = v.validate(body, schema, {
-    allowUnknownAttributes: false,
-  });
   if (validationResults.errors.length > 0) {
-    throw new Error(JSON.stringify(validationResults.errors));
+    let errorText = '';
+    validationResults.errors.forEach(i => {
+      errorText += `Request payload ${i.message}. `;
+    });
+    return {
+      statusCode: 422,
+      headers,
+      body: errorText,
+    };
   }
 };
 
