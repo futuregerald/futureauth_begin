@@ -7,7 +7,7 @@ const arc = require('@architect/functions');
 const validatePayload = require('./validator');
 
 async function http(req) {
-  console.log(req);
+  console.log('is this valid', req);
   try {
     const { body } = req;
 

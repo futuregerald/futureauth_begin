@@ -3,7 +3,8 @@ const { headers } = require('@architect/shared/common/headers');
 
 const v = new Validator();
 
-const validatePayload = ({ body }) => {
+const validatePayload = req => {
+  const { body } = req;
   const schema = {
     type: 'object',
     properties: {
@@ -41,6 +42,7 @@ const validatePayload = ({ body }) => {
       body: errorText,
     };
   }
+  req.isValidRequest = true;
 };
 
 module.exports = validatePayload;
