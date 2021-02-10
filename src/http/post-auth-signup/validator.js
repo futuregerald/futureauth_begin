@@ -1,5 +1,9 @@
 const { Validator } = require('jsonschema');
-const { headers } = require('@architect/shared/common/headers');
+
+const headers = {
+  'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
+  'content-type': 'application/json',
+};
 
 const v = new Validator();
 

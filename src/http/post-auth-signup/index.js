@@ -1,10 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 const { signupEmailPassword } = require('@architect/shared/auth/auth');
-const { headers } = require('@architect/shared/common/headers');
 require('@architect/shared/DB/dbConnection');
 const arc = require('@architect/functions');
 const validatePayload = require('./validator');
+
+const headers = {
+  'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
+  'content-type': 'application/json',
+};
 
 async function http(req) {
   console.log('is this valid', req);
