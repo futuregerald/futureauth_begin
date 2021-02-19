@@ -1,4 +1,4 @@
-const { userSerializer } = require('../serializers/user');
+const { userSerializer } = require('../serializers/user_serializer');
 const UserModel = require('../DB/UserModel');
 const TenantModel = require('../DB/TenantModel');
 
