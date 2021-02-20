@@ -14,7 +14,6 @@
     "@architect/functions": "^3.13.9",
     "jsonschema": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
-    "mailgun-js": "^0.22.0",
-    "rand-token": "^1.0.1"
+    "mailgun-js": "^0.22.0"
   }
 }
